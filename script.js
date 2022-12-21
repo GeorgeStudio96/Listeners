@@ -1,3 +1,5 @@
+'use strict'
+
 const mainBtn = document.getElementById('btn')
 const input = document.getElementById('text')
 const square = document.querySelector('#square')
@@ -7,38 +9,12 @@ const inputRange = document.querySelector('input[type=range]')
 const span = document.querySelector('#range-span')
 
 
-
-
-
-function inputValue(event) {
-    console.log(event.target.value);
-}
-
-input.addEventListener('input', inputValue)
-input.addEventListener('change', inputValue)
-
-
-
-
-const changeColor = function (e) {
-    e.stopPropagation();
-
-    if (input.value == 'black') {
-        square.style.backgroundColor = 'black'
-    } else if (input.value == 'blue') {
-        square.style.backgroundColor = 'blue'
-    } else {
-        square.style.backgroundColor = 'orange'
-    }
-
+const getInputValue = function () {
+    square.style.backgroundColor = input.value
     btn.style.display = 'none'
-
-
 }
 
-
-mainBtn.addEventListener('click', changeColor)
-
+mainBtn.addEventListener('click', getInputValue)
 
 
 
